@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
-    <h1>{{ .title }}</h1>
+    <h1>Upload your document</h1>
+    {{ if .error }}
+    <p>{{ .error }}</p>
+    {{ end }}
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <div class="form-field">
+            <label for="file">File</label>
+            <input type="file" name="file" id="file">
+        </div>
+        <div class="form-field">           
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" value="Upload">
+    </form>
     
 </body>
 </html>

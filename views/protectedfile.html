@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="/public/style.css">
 </head>
-<body>
-    <h1>Download your document</h1>
-    {{ if .error }}
-    <p>{{ .error }}</p>
-    {{ end }}
-    <form action="/file/download" method="post">
-        {{ if .fileid }}
-        <input type="hidden" name="fileid" value="{{ .fileid }}">
+<body class="display-center">
+    <div>
+        <h1>Download your document</h1>
+        {{ if .error }}
+        <p>{{ .error }}</p>
         {{ end }}
-        <div class="form-field">           
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <input type="submit" value="Download">
-    </form>
+        <form action="/file/download" method="post">
+            {{ if .fileid }}
+            <input type="hidden" name="fileid" value="{{ .fileid }}">
+            {{ end }}
+            <div class="form-field">           
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Download">
+        </form>
+    </div>
 </body>
 </html>

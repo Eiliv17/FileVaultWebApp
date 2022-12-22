@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Download your document</h1>
+    {{ if .error }}
+    <p>{{ .error }}</p>
+    {{ end }}
+    <form action="/file/download" method="post">
+        {{ if .fileid }}
+        <input type="hidden" name="fileid" value="{{ .fileid }}">
+        {{ end }}
+        <div class="form-field">           
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" value="Download">
+    </form>
 </body>
 </html>

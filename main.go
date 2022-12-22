@@ -29,6 +29,10 @@ func main() {
 
 	rfile := r.Group("/file")
 	{
+		rfile.GET("/:id", controllers.GetDownloadPage)
+
+		rfile.POST("/download", controllers.Download)
+
 		rfile.POST("/upload", controllers.Upload)
 	}
 
